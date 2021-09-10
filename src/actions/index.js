@@ -1,22 +1,21 @@
 import axios from 'axios';
-
 export const FETCH_START = 'FETCH_START';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
 export const ADD_SMURF = 'ADD_SMURF';
 
 export const fetchSmurf = () => {
-    // console.log('inside fetchSmurf');
-    return(dispatch => {
-        console.log('inside fetchSmurf return');
-        dispatch(fetchStart())
+    console.log('inside fetchSmurf');
+    return ( dispatch => {
+        console.log('I am dispatching');
+        dispatch({type: FETCH_START});
         axios.get(`http://localhost:3333/smurfs`)
             .then(res => {
-                console.log('Axios Call',res);
+                console.log('Axios Call',res.data);
                 dispatch(fetchSuccess(res.data))
             })
             .catch(err => fetchFail(err));
-    })
+    });
 }
 
 export const fetchStart = () => {

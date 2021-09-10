@@ -15,10 +15,7 @@ class App extends Component {
 
   componentDidMount() {
     console.log('Did mount');
-    fetchSmurf();
-    // axios.get('http://localhost:3333/smurfs')
-    // .then(res => console.log(res))
-    // .catch(err => console.log('Axios Error', err));
+    this.props.fetchSmurf();
   }
 
   render() {
@@ -34,12 +31,6 @@ class App extends Component {
     );
   }
 }
-
-// const mapStateToProps = state => {
-//   return {
-//     fetchSmurf
-//   }
-// }
 
 export default connect(null, { fetchSmurf })(App);
 

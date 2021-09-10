@@ -1,4 +1,3 @@
-
 import { 
     FETCH_START,
     FETCH_SUCCESS,
@@ -7,20 +6,23 @@ import {
 } from "../actions"
 
 
-export const initialState = {
+const initialState = {
     smurfs: [],
     loading: false,
     error: ''
 }
 
 const reducer = (state = initialState, action) => {
+    console.log('Inside Reducer');
     switch(action.type){
-        case FETCH_START:
+        case FETCH_START: {
+            console.log('This is fetch Start action')
             return ({
                 ...state,
                 loading: true,
                 error: ''
             })
+        }
         case FETCH_SUCCESS:
             return ({
                 ...state,
@@ -36,13 +38,7 @@ const reducer = (state = initialState, action) => {
         case ADD_SMURF:
             return ({
                 ...state,
-                smurfs: [...state.smurfs, {
-                    name: action.payload.name,
-                    nickname: action.payload.nickname,
-                    position: action.payload.position,
-                    description: action.payload.description,
-                    id: action.payload.id
-                }]
+                smurfs: [...state.smurfs, action.payload]
             })
         default:
             return(state);
