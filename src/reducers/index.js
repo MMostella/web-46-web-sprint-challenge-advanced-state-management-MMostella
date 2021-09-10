@@ -2,7 +2,8 @@ import {
     FETCH_START,
     FETCH_SUCCESS,
     FETCH_FAIL,
-    ADD_SMURF
+    ADD_SMURF,
+    SET_ERROR
 } from "../actions"
 
 
@@ -13,7 +14,6 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-    console.log('Inside Reducer');
     switch(action.type){
         case FETCH_START: {
             console.log('This is fetch Start action')
@@ -33,12 +33,17 @@ const reducer = (state = initialState, action) => {
         case FETCH_FAIL:
             return ({
                 ...state,
-                error: 'You have a smurfing error!!!'
+                error: action.payload
             })
         case ADD_SMURF:
             return ({
                 ...state,
                 smurfs: [...state.smurfs, action.payload]
+            })
+        case SET_ERROR:
+            return ({
+                ...state,
+                error: action.payload
             })
         default:
             return(state);
