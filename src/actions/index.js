@@ -6,12 +6,14 @@ export const FETCH_FAIL = 'FETCH_FAIL';
 export const ADD_SMURF = 'ADD_SMURF';
 
 export const fetchSmurf = () => {
+    // console.log('inside fetchSmurf');
     return(dispatch => {
+        console.log('inside fetchSmurf return');
         dispatch(fetchStart())
         axios.get(`http://localhost:3333/smurfs`)
             .then(res => {
                 console.log('Axios Call',res);
-                // dispatch(fetchSuccess(res.data))
+                dispatch(fetchSuccess(res.data))
             })
             .catch(err => fetchFail(err));
     })
@@ -29,8 +31,8 @@ export const fetchFail = (error) => {
     return ({type: FETCH_FAIL, payload: error})
 }
 
-export const addSmurf = (newSmurf) => {
-    return ({type: ADD_SMURF, payload: newSmurf})
+export const addSmurf = (smurfs) => {
+    return ({type: ADD_SMURF, payload: smurfs})
 }
 
 //Task List:

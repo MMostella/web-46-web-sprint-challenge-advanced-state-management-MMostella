@@ -59,15 +59,15 @@ In this challenge, you are to build a Smurfs village database utilizing Redux as
 #### App.js
   Connect this component to redux **passing in your fetchSmurfs action only.** 
   
-  * [ ] Connect the fetchSmurfs actions to the App component.
-  * [ ] Call the fetchSmurfs action when the component first loads.
+  * [1] Connect the fetchSmurfs actions to the App component.
+  * [1] Call the fetchSmurfs action when the component first loads.
 
 #### components/SmurfList.js
   Connect this component to redux, **passing in your smurf array and loading status state values.** 
   
-  * [ ] Connect the smurfs and loading state values to the SmurfList component.
-  * [ ] Replace the single Smurf component instance with a map return a Smurf component for each entry in the smurfs list.
-  * [ ] Replace the static isLoading variable with the state loading variable.
+  * [1] Connect the smurfs and loading state values to the SmurfList component.
+  * [1] Replace the single Smurf component instance with a map return a Smurf component for each entry in the smurfs list.
+  * [1] Replace the static isLoading variable with the state loading variable.
 
 #### components/Smurf.js
   You do not need to modify this component.
